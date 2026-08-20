@@ -92,35 +92,35 @@ let activeFacilityKey = 'smartClass';
    ========================================================================== */
 const targetBoardPapers = [
   // --- 12th HSC Science ---
-  { standard: "12th", stream: "Science", medium: "English", subject: "Information Technology (Science)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Science", medium: "English", subject: "Physics (Theory & Numericals)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Science", medium: "English", subject: "Chemistry", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Science", medium: "English", subject: "Mathematics & Statistics", year: "2024", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Science", medium: "English", subject: "Biology", year: "2024", paperUrl: "#", solUrl: "#" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Information Technology (Science)", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Physics (Theory & Numericals)", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Chemistry", year: "2025" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Mathematics & Statistics", year: "2024" },
+  { standard: "12th", stream: "Science", medium: "English", subject: "Biology", year: "2024" },
 
   // --- 12th HSC Commerce ---
-  { standard: "12th", stream: "Commerce", medium: "English", subject: "Information Technology (Commerce)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Commerce", medium: "English", subject: "Book-Keeping & Accountancy (BK)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Commerce", medium: "English", subject: "Economics", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Commerce", medium: "English", subject: "Organization of Commerce (OCM)", year: "2024", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Commerce", medium: "English", subject: "Secretarial Practice (SP)", year: "2024", paperUrl: "#", solUrl: "#" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Information Technology (Commerce)", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Book-Keeping & Accountancy (BK)", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Economics", year: "2025" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Organization of Commerce (OCM)", year: "2024" },
+  { standard: "12th", stream: "Commerce", medium: "English", subject: "Secretarial Practice (SP)", year: "2024" },
 
   // --- 12th HSC Arts ---
-  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "इतिहास (History)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "भूगोल (Geography)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "12th", stream: "Arts", medium: "English", subject: "English Yuvakbharati", year: "2025", paperUrl: "#", solUrl: "#" },
+  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "इतिहास (History)", year: "2025" },
+  { standard: "12th", stream: "Arts", medium: "Marathi", subject: "भूगोल (Geography)", year: "2025" },
+  { standard: "12th", stream: "Arts", medium: "English", subject: "English Yuvakbharati", year: "2025" },
 
   // --- 11th FYJC ---
-  { standard: "11th", stream: "Science", medium: "English", subject: "11th IT Fundamentals", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "11th", stream: "Commerce", medium: "English", subject: "11th Book-Keeping & Accounts", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "11th", stream: "Science", medium: "English", subject: "11th Physics & Chemistry Unit Test", year: "2024", paperUrl: "#", solUrl: "#" },
+  { standard: "11th", stream: "Science", medium: "English", subject: "11th IT Fundamentals", year: "2025" },
+  { standard: "11th", stream: "Commerce", medium: "English", subject: "11th Book-Keeping & Accounts", year: "2025" },
+  { standard: "11th", stream: "Science", medium: "English", subject: "11th Physics & Chemistry Unit Test", year: "2024" },
 
   // --- 10th SSC ---
-  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-1 (Algebra)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-2 (Geometry)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "10th", stream: "General", medium: "English", subject: "Science & Technology", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "10th", stream: "General", medium: "Marathi", subject: "मराठी प्रथम भाषा (Kumarbharati)", year: "2025", paperUrl: "#", solUrl: "#" },
-  { standard: "10th", stream: "General", medium: "English", subject: "Social Sciences (History & Geography)", year: "2024", paperUrl: "#", solUrl: "#" }
+  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-1 (Algebra)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Mathematics Part-2 (Geometry)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Science & Technology", year: "2025" },
+  { standard: "10th", stream: "General", medium: "Marathi", subject: "मराठी प्रथम भाषा (Kumarbharati)", year: "2025" },
+  { standard: "10th", stream: "General", medium: "English", subject: "Social Sciences (History & Geography)", year: "2024" }
 ];
 
 window.openBoardPapersModal = function() {
@@ -185,16 +185,124 @@ window.filterAndDisplayPapers = function() {
           <h4 class="tp-subject-title">${p.subject}</h4>
         </div>
         <div class="tp-row-actions">
-          <a href="${p.paperUrl}" class="tp-btn tp-btn-paper" onclick="alert('Downloading Question Paper for: ${p.subject}')">
+          <button class="tp-btn tp-btn-paper" onclick="generateAndDownloadBoardPaper('${p.subject}', '${p.standard}', '${p.year}', 'paper')">
             <i class="fa-solid fa-download"></i> Paper
-          </a>
-          <a href="${p.solUrl}" class="tp-btn tp-btn-sol" onclick="alert('Downloading Model Answer Solution for: ${p.subject}')">
+          </button>
+          <button class="tp-btn tp-btn-sol" onclick="generateAndDownloadBoardPaper('${p.subject}', '${p.standard}', '${p.year}', 'solution')">
             <i class="fa-solid fa-book"></i> Solution
-          </a>
+          </button>
         </div>
       </div>
     `;
   }).join("");
+};
+
+/* ==========================================================================
+   Client-Side Maharashtra Board PDF / Printable Paper Generator
+   ========================================================================== */
+window.generateAndDownloadBoardPaper = function(subject, standard, year, type) {
+  const isSolution = type === 'solution';
+  const docTitle = `${standard} ${subject} - ${year} (${isSolution ? 'Model Answer Solution' : 'Board Question Paper'})`;
+
+  let contentHtml = '';
+  if (subject.includes('Information Technology')) {
+    contentHtml = isSolution ? `
+      <h3>SECTION A: OBJECTIVE SOLUTIONS (20 Marks)</h3>
+      <p><strong>Q.1 Fill in the blanks:</strong><br>
+      (1) The <code>&lt;canvas&gt;</code> tag is used to draw graphics on a web page via JavaScript.<br>
+      (2) CSS <code>display: flex</code> defines a flex container.<br>
+      (3) JavaScript variables declared with <code>const</code> have block scope.<br>
+      (4) In SEO, <code>meta name="description"</code> provides page summary for search bots.<br>
+      (5) E-Commerce model between businesses is known as <strong>B2B</strong>.</p>
+      
+      <h3>SECTION B: CODE & PROGRAMMING (20 Marks)</h3>
+      <p><strong>Q.6 Write an HTML5 & JavaScript Code with Form Validation:</strong></p>
+      <pre style="background:#f1f5f9; padding:15px; border-radius:6px;">
+&lt;form onsubmit="return validate()"&gt;
+  &lt;input type="text" id="name" required placeholder="Name"&gt;
+  &lt;input type="tel" id="mobile" pattern="[0-9]{10}" required placeholder="10-digit mobile"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+    ` : `
+      <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #000; padding-bottom:5px;">
+        <span><strong>Time:</strong> 2.5 Hours</span>
+        <span><strong>Max Marks:</strong> 80</span>
+      </div>
+      <h3>SECTION A: OBJECTIVE QUESTIONS (20 Marks)</h3>
+      <p><strong>Q.1 Fill in the blanks: (5 Marks)</strong><br>
+      (1) The ________ tag is used in HTML5 to draw graphics on the fly.<br>
+      (2) CSS ________ property is used to specify a flexible layout structure.<br>
+      (3) In JavaScript, variables declared with ________ cannot be re-assigned.<br>
+      (4) In SEO, Meta ________ tag provides short summary of web page.<br>
+      (5) E-Commerce transaction between company and customer is called ________.</p>
+      
+      <p><strong>Q.2 State whether True or False: (5 Marks)</strong><br>
+      (1) JavaScript is a case-sensitive programming language.<br>
+      (2) Audio and Video tags were introduced in HTML4.</p>
+      
+      <h3>SECTION B: PROGRAMMING & PRACTICAL SOPs (20 Marks)</h3>
+      <p><strong>Q.6 Write HTML5 code with CSS & JavaScript form validation for School Admission Portal. (10 Marks)</strong></p>
+    `;
+  } else {
+    contentHtml = isSolution ? `
+      <h3>MODEL ANSWERS & MARKING SCHEME</h3>
+      <p><strong>Q.1 Multiple Choice Questions:</strong><br>
+      (i) Option (B) • 1 Mark<br>
+      (ii) Option (A) • 1 Mark<br>
+      (iii) Option (C) • 1 Mark</p>
+      <p><strong>Q.2 Descriptive Answers:</strong> Complete step-by-step working and diagrams as prescribed by Maharashtra State Board textbook syllabus.</p>
+    ` : `
+      <div style="display:flex; justify-content:space-between; margin-bottom:15px; border-bottom:1px solid #000; padding-bottom:5px;">
+        <span><strong>Time:</strong> 3.0 Hours</span>
+        <span><strong>Max Marks:</strong> 80 / 100</span>
+      </div>
+      <h3>SECTION A (General Instructions)</h3>
+      <p>1. All questions are compulsory.<br>2. Draw neat diagrams wherever necessary.<br>3. Figures to the right indicate full marks.</p>
+      <h3 style="margin-top:15px;">SECTION B (Questions)</h3>
+      <p>Q.1 Attempt any four out of six short-answer questions. (12 Marks)<br>
+      Q.2 Solve practical problems / Long-answer questions. (16 Marks)<br>
+      Q.3 Explain concepts with formula and equations. (12 Marks)</p>
+    `;
+  }
+
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>${docTitle}</title>
+      <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 30px; color: #111; max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h2 { margin: 0; font-size: 1.3rem; text-transform: uppercase; }
+        .header p { margin: 5px 0 0; font-size: 0.95rem; }
+        .print-bar { background: #2563eb; color: white; padding: 10px 20px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .print-btn { background: #fff; color: #2563eb; border: none; padding: 8px 16px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        @media print { .print-bar { display: none; } body { padding: 0; } }
+      </style>
+    </head>
+    <body>
+      <div class="print-bar">
+        <span>📄 ${docTitle}</span>
+        <button class="print-btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
+      </div>
+
+      <div class="header">
+        <h2>Maharashtra State Board of Secondary & Higher Secondary Education</h2>
+        <p><strong>Shivaji English School & Junior College, Pandur Titha, Sindhudurg</strong></p>
+        <p><strong>${standard} Examination • ${subject} (${year})</strong></p>
+        <p style="font-style: italic; color: #444;">${isSolution ? 'Official Model Answer & Solution Guide' : 'Annual Board Question Paper'}</p>
+      </div>
+
+      ${contentHtml}
+
+      <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; text-align: center; font-size: 0.8rem; color: #666;">
+        Shivaji English School & Jr. College • Student Learning Hub • Contact: sohamjikamde@gmail.com
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
 };
 
 const fullDictionary = {
