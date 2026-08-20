@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Main Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
 
@@ -358,12 +358,12 @@
           <button class="hub-btn" onclick="askAiQuestion('commerce practical ledger')"><i class="fa-solid fa-folder-open"></i> <span id="hub3Btn">Practice Sheets</span></button>
         </div>
 
-        <!-- 4. Previous Board Papers (Updated to open Modal) -->
-        <div class="hub-card highlight-card">
+        <!-- 4. Previous Board Papers (Opens Download Modal) -->
+        <div class="hub-card">
           <div class="hub-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
           <h3 id="hub4Title">Previous Board Papers</h3>
           <p id="hub4Desc">HSC and SSC question papers from 2021 to 2026 with official model answers and marking schemes.</p>
-          <button class="hub-btn primary-hub-btn" onclick="openBoardPapersModal()"><i class="fa-solid fa-book-open"></i> <span id="hub4Btn">Browse Papers</span></button>
+          <button class="hub-btn" onclick="openBoardPapersModal()"><i class="fa-solid fa-book"></i> <span id="hub4Btn">Browse Papers</span></button>
         </div>
       </div>
     </div>
@@ -571,9 +571,9 @@
         <div>
           <div class="tp-badge">Maharashtra State Board (SSC & HSC)</div>
           <h3 class="tp-title">Previous Question Papers & Solutions Vault</h3>
-          <p class="tp-subtitle">Download question papers & official model answer keys (2021–2026)</p>
+          <p class="tp-subtitle">Download official board question papers & model answer keys (2021–2026)</p>
         </div>
-        <button class="tp-close-btn" onclick="closeBoardPapersModal()" aria-label="Close">&times;</button>
+        <button class="tp-close-btn" onclick="closeBoardPapersModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <!-- Filter Controls Toolbar -->
@@ -682,6 +682,6 @@
   </footer>
 
   <!-- Main JavaScript -->
-  <script src="script.js?v=31"></script>
+  <script src="script.js?v=32"></script>
 </body>
 </html>
