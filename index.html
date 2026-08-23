@@ -10,26 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    body.login-body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      padding: 20px;
-      font-family: var(--font-base);
-    }
-
-    .login-card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
-      padding: 40px;
-      border: 1px solid rgba(226, 232, 240, 0.8);
-    }
-
+    body.login-body { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 20px; font-family: var(--font-base); }
+    .login-card { background: #ffffff; width: 100%; max-width: 420px; border-radius: 20px; box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1); padding: 40px; border: 1px solid rgba(226, 232, 240, 0.8); }
     .login-header { text-align: center; margin-bottom: 25px; }
     .login-header i { font-size: 45px; color: #1a365d; margin-bottom: 15px; }
     .login-header h1 { font-family: var(--font-heading); color: #0f172a; font-size: 22px; line-height: 1.2; margin: 0; }
@@ -39,9 +21,14 @@
     .role-tab { flex: 1; text-align: center; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; color: #64748b; transition: 0.3s; }
     .role-tab.active { background: #ffffff; color: #0f172a; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
 
-    .form-group { margin-bottom: 15px; }
+    .form-group { margin-bottom: 15px; position: relative; }
     .form-control { width: 100%; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: var(--font-base); font-size: 14px; outline: none; transition: 0.3s; background: #f8fafc; }
     .form-control:focus { border-color: #1a365d; background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1); }
+    
+    /* Eye Icon for Show Password */
+    .toggle-pass { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; cursor: pointer; font-size: 16px; transition: 0.2s; }
+    .toggle-pass:hover { color: #1a365d; }
+    #userPass { padding-right: 45px; } /* Room for the eye icon */
 
     .options-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 25px; }
     .options-row label { display: flex; align-items: center; gap: 6px; color: #475569; cursor: pointer; font-weight: 500; }
@@ -68,23 +55,22 @@
       <p>SECURE LOGIN PORTAL</p>
     </div>
     
-    <!-- Interactive Tabs mapping to the switchTab JS function -->
     <div class="role-tabs">
       <div class="role-tab active" onclick="switchTab(this, 'Student')">Student</div>
       <div class="role-tab" onclick="switchTab(this, 'Teacher')">Teacher</div>
       <div class="role-tab" onclick="switchTab(this, 'Visitor')">Visitor</div>
     </div>
 
-    <form onsubmit="event.preventDefault(); window.location.href='home.html';">
+    <form onsubmit="saveAndLogin(event)">
       <div class="form-group">
-        <!-- Target ID set so JS can dynamically change the placeholder -->
         <input type="text" id="dynamicNameInput" class="form-control" placeholder="Student Full Name" required>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email Address" required>
+        <input type="email" id="userEmail" class="form-control" placeholder="Email Address" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="userPass" class="form-control" placeholder="Password" required>
+        <i class="fa-solid fa-eye toggle-pass" onclick="togglePassword('userPass', this)"></i>
       </div>
       
       <div class="options-row">
@@ -97,23 +83,52 @@
 
     <div class="divider">OR</div>
 
-    <button class="btn-admin" onclick="window.location.href='admin-login.html'">
+    <button type="button" class="btn-admin" onclick="window.location.href='admin-login.html'">
       <i class="fa-solid fa-shield-halved"></i> SECURE ADMIN LOGIN
     </button>
   </div>
 
   <script>
+    let currentRole = "Student";
+
     function switchTab(clickedTab, roleType) {
-      // 1. Remove "active" class from all tabs
       document.querySelectorAll('.role-tab').forEach(tab => tab.classList.remove('active'));
-      
-      // 2. Add "active" class to the clicked tab
       clickedTab.classList.add('active');
-      
-      // 3. Dynamically change the input placeholder text
+      currentRole = roleType;
       document.getElementById('dynamicNameInput').placeholder = roleType + " Full Name";
     }
-  </script>
 
+    // Show/Hide Password Logic
+    function togglePassword(inputId, icon) {
+      const input = document.getElementById(inputId);
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
+
+    function saveAndLogin(event) {
+      event.preventDefault(); 
+      const name = document.getElementById('dynamicNameInput').value;
+      const email = document.getElementById('userEmail').value;
+      const pass = document.getElementById('userPass').value;
+
+      const now = new Date();
+      const timeString = now.toLocaleDateString('en-GB', { day:'numeric', month:'short' }) + ', ' + now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+
+      let usersDB = JSON.parse(localStorage.getItem('collegeUsers')) || [];
+      usersDB.push({
+        id: "#" + (1001 + usersDB.length), name: name, email: email, role: currentRole, pass: pass, time: timeString
+      });
+
+      localStorage.setItem('collegeUsers', JSON.stringify(usersDB));
+      window.location.href = 'home.html';
+    }
+  </script>
 </body>
 </html>
