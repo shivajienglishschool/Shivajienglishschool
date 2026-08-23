@@ -97,21 +97,25 @@
 <body>
 
   <!-- Universal Navigation Bar -->
-  <header class="main-header">
+    <header class="main-header">
+    <div class="college-title-gold">
+      SHIVAJI ENGLISH SCHOOL & JUNIOR COLLEGE OF SCIENCE, ARTS & COMMERCE
+    </div>
     <div class="nav-container">
-      <a href="home.html" style="text-decoration: none;">
-        <div class="college-name">SHIVAJI ENGLISH SCHOOL</div>
-      </a>
+      <button class="mobile-toggle" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></button>
       <ul class="nav-list">
         <li><a href="home.html" class="nav-link">Home</a></li>
         <li><a href="academics.html" class="nav-link">Academics</a></li>
-        <li><a href="events.html" class="nav-link" style="color: var(--accent);">Events</a></li>
-        <li><a href="tour.html" class="nav-link">Campus Tour</a></li>
+        <li><a href="toppers.html" class="nav-link">Toppers</a></li>
         <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="events.html" class="nav-link active">Events</a></li>
+        <li><a href="tour.html" class="nav-link">Campus Tour</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
+      <button class="settings-toggle" onclick="toggleSettings()"><i class="fa-solid fa-gear"></i></button>
     </div>
   </header>
+
 
   <div class="page-wrapper">
     <!-- Header -->
