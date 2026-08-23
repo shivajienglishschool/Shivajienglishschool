@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Shivaji English School</title>
+  
+  <!-- Linking Master Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body.admin-login-body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                  url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920') center/cover;
+    }
+
+    .admin-box {
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+      color: white;
+      font-family: var(--font-heading);
+    }
+
+    .logo p {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 15px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: var(--font-base);
+    }
+
+    .forgot {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .forgot a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .face-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .face-btn:hover {
+      background: var(--primary-light);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: var(--primary-dark);
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      transition: var(--transition);
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="admin-login-body">
+
+  <div class="admin-box">
+    <div class="logo">
+      <h1>SHIVAJI ENGLISH SCHOOL</h1>
+      <p>& JUNIOR COLLEGE OF ARTS, COMMERCE & SCIENCE</p>
+    </div>
+
+    <div class="title">ADMIN LOGIN</div>
+
+    <form onsubmit="event.preventDefault(); window.location.href='admin-dashboard.html';">
+      <input type="text" placeholder="Admin Username" required>
+      <input type="email" placeholder="Admin Email" required>
+      <input type="password" placeholder="Password" required>
+
+      <div class="forgot">
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="button" class="face-btn" onclick="alert('Face Scan Module Initialized...');">
+        <i class="fa-solid fa-camera-user"></i> Face Scan Authentication
+      </button>
+
+      <button type="submit" class="login-btn">
+        LOGIN AS ADMIN
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
