@@ -14,79 +14,17 @@
     body{margin:0;font-family:var(--font-base);background:#06162c;color:#eef4fb;overflow-x:hidden}
     :root{--gold:#d97706;--panel:#0a2341;--line:#203e5c;--muted:#8fa4bb;--primary:#071d36}
     
-    /* Top Header matching your screenshots */
     .top{height:75px;position:fixed;top:0;left:0;right:0;background:#06172d;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;z-index:1000}
     
-    .menu-toggle-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-      padding: 5px 10px;
-      margin-right: 10px;
-      display: grid;
-      place-items: center;
-    }
+    .menu-toggle-btn { background: none; border: none; color: white; font-size: 22px; cursor: pointer; padding: 5px 10px; margin-right: 10px; display: grid; place-items: center; }
+    .crest-logo { width: 44px; height: 44px; border: 2px solid var(--gold); border-radius: 50%; display: grid; place-items: center; color: var(--gold); font-family: var(--font-heading); font-size: 20px; font-weight: bold; flex-shrink: 0; background: rgba(217, 119, 6, 0.1); }
+    .brand-title { margin-left: 12px; font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: white; line-height: 1.2; }
+    .brand-title small { display: block; font-family: var(--font-base); font-size: 9px; color: #94a3b8; letter-spacing: 0.8px; text-transform: uppercase; }
+    .topright { margin-left: auto; display: flex; align-items: center; gap: 12px; font-size: 18px; }
+    .avatar-btn { width: 38px; height: 38px; border-radius: 50%; background: #e2e8f0; color: #0f172a; font-weight: bold; display: grid; place-items: center; font-size: 14px; border: 2px solid var(--gold); cursor: pointer; }
 
-    .crest-logo {
-      width: 44px;
-      height: 44px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--gold);
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: bold;
-      flex-shrink: 0;
-      background: rgba(217, 119, 6, 0.1);
-    }
-
-    .brand-title {
-      margin-left: 12px;
-      font-family: var(--font-heading);
-      font-size: 15px;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-    }
-    .brand-title small {
-      display: block;
-      font-family: var(--font-base);
-      font-size: 9px;
-      color: #94a3b8;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-
-    .topright {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 18px;
-    }
-    
-    .avatar-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #e2e8f0;
-      color: #0f172a;
-      font-weight: bold;
-      display: grid;
-      place-items: center;
-      font-size: 14px;
-      border: 2px solid var(--gold);
-      cursor: pointer;
-    }
-
-    /* Slide-out Sidebar / Drawer */
     .side{position:fixed;top:75px;bottom:0;left:-280px;width:280px;background:#071d36;border-right:1px solid var(--line);padding:15px 12px;overflow-y:auto;transition:left 0.3s ease;z-index:999}
     .side.open { left: 0; }
-
     .profile{text-align:center;padding:5px 0 15px;border-bottom:1px solid var(--line)}
     .bigavatar{width:70px;height:70px;border-radius:50%;margin:auto;background:#e2e8f0;color:#0f172a;display:grid;place-items:center;font-size:24px;font-weight:bold;border:2px solid var(--gold)}
     .online{color:#56dc6c;font-size:11px;margin-top:4px}
@@ -96,26 +34,12 @@
     .nav i { width: 18px; text-align: center; color: var(--gold); }
     .nav:hover i, .nav.active i { color: white; }
     
-    /* Main Content Area */
     .main{margin-left:0;padding:95px 15px 30px;transition:0.3s}
     .crumb{color:#879ab0;font-size:11px;margin-bottom:8px}
     .title{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
     .title h1{margin:0;font-size:26px;font-family:var(--font-heading)}
     .title p{color:var(--gold);margin:0;font-weight: 600;}
-    
-    .date-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #35506a;
-      background: #0a213d;
-      border-radius: 8px;
-      padding: 10px 14px;
-      color: #c4d0dd;
-      font-size: 13px;
-      width: 100%;
-      justify-content: space-between;
-    }
+    .date-badge { display: flex; align-items: center; gap: 8px; border: 1px solid #35506a; background: #0a213d; border-radius: 8px; padding: 10px 14px; color: #c4d0dd; font-size: 13px; width: 100%; justify-content: space-between; }
 
     .cards{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:12px;margin-bottom:20px}
     .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
@@ -137,7 +61,7 @@
     .greenDot{background:#39b96a}
 
     .donut{width:130px;height:130px;border-radius:50%;margin:15px auto;background:conic-gradient(#3d8af0 0 64%,#35a85f 64% 72%,#8545b8 72% 100%);display:grid;place-items:center}
-    .donut:after{content:"1,936 Total";text-align:center;background:var(--panel);width:80px;height:80px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:bold}
+    .donut:after{content:"Total Users";text-align:center;background:var(--panel);width:80px;height:80px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:bold}
     
     .tablewrap{width:100%;overflow-x:auto}
     table{width:100%;border-collapse:collapse;min-width:500px}
@@ -145,7 +69,6 @@
     th{color:#7f94aa}
     .status{color:#54d867;border:1px solid #28733b;border-radius:4px;padding:2px 6px;font-size:10px}
     .actions button{border:0;border-radius:4px;padding:6px 8px;margin-right:3px;background:#173b68;color:white;cursor:pointer}
-    .actions .edit{background:#d97706}
     .actions .del{background:#8e2d3b}
 
     .list{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #1c3853}
@@ -156,7 +79,6 @@
 
     .footer{text-align:center;color:#667d94;font-size:11px;border-top:1px solid var(--line);margin-top:25px;padding:18px}
     
-    /* Desktop optimization */
     @media(min-width: 900px) {
       .side { left: 0; }
       .main { margin-left: 280px; padding: 95px 24px 30px; }
@@ -172,18 +94,15 @@
 </head>
 <body>
 
-<!-- Top Header Bar -->
 <header class="top">
   <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Menu">
     <i class="fa-solid fa-bars"></i>
   </button>
-  
   <div class="crest-logo">R</div>
   <div class="brand-title">
     Shivaji English School And Junior College
     <small>OF ARTS, SCIENCE & COMMERCE</small>
   </div>
-
   <div class="topright">
     <span style="cursor:pointer;" title="Notifications">🔔</span>
     <span style="cursor:pointer;" title="Messages">✉️</span>
@@ -191,7 +110,6 @@
   </div>
 </header>
 
-<!-- Slide-out Sidebar Drawer matching your screenshots -->
 <aside class="side" id="sideDrawer">
   <div class="profile">
     <div class="bigavatar">A</div>
@@ -208,22 +126,10 @@
   <a href="#" class="nav"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
   <a href="#" class="nav"><i class="fa-solid fa-clipboard-list"></i> Notice Management</a>
   <a href="#" class="nav"><i class="fa-solid fa-chart-pie"></i> Reports & Analytics</a>
-  <a href="#" class="nav" onclick="location.href='home.html'"><i class="fa-solid fa-globe"></i> Website Management</a>
-  <a href="#" class="nav"><i class="fa-solid fa-folder-open"></i> Media Library</a>
-  <a href="#" class="nav" onclick="location.href='toppers.html'"><i class="fa-solid fa-trophy"></i> College Toppers</a>
-  <a href="#" class="nav" onclick="location.href='academics.html'"><i class="fa-solid fa-book"></i> Academics</a>
-  <a href="#" class="nav"><i class="fa-solid fa-user-graduate"></i> Student Management</a>
-  <a href="#" class="nav"><i class="fa-solid fa-chalkboard-user"></i> Faculty Management</a>
-  <a href="#" class="nav"><i class="fa-solid fa-palette"></i> Design & Theme</a>
-  <a href="#" class="nav"><i class="fa-solid fa-gears"></i> SEO & Website Settings</a>
-  <a href="#" class="nav" onclick="location.href='contact.html'"><i class="fa-solid fa-address-book"></i> Contact & Forms</a>
-  <a href="#" class="nav"><i class="fa-solid fa-sliders"></i> System Settings</a>
-  <a href="#" class="nav"><i class="fa-solid fa-database"></i> Backup & Restore</a>
-  <a href="#" class="nav"><i class="fa-solid fa-circle-question"></i> Support & Help</a>
-  <a href="index.html" class="nav" style="color:#ef4444;"><i class="fa-solid fa-right-from-bracket" style="color:#ef4444;"></i> Logout</a>
+  <a href="home.html" class="nav"><i class="fa-solid fa-globe"></i> Website Management</a>
+  <a href="index.html" class="nav" style="color:#ef4444; margin-top:20px;"><i class="fa-solid fa-right-from-bracket" style="color:#ef4444;"></i> Logout</a>
 </aside>
 
-<!-- Main Dashboard Content -->
 <main class="main">
   <div class="crumb">Home › Dashboard</div>
   <div class="title">
@@ -237,50 +143,16 @@
     </div>
   </div>
 
-  <!-- 6 Stat Cards -->
   <section class="cards">
-    <div class="card">
-      <div class="ico" style="background:#1d4ed8;"><i class="fa-solid fa-users"></i></div>
-      <span>Total Students</span>
-      <div class="num">1,248</div>
-      <div class="up">↑ 12.5% from last month</div>
-    </div>
-    <div class="card">
-      <div class="ico" style="background:#059669;"><i class="fa-solid fa-chalkboard-user"></i></div>
-      <span>Total Teachers</span>
-      <div class="num">156</div>
-      <div class="up">↑ 8.3% from last month</div>
-    </div>
-    <div class="card">
-      <div class="ico" style="background:#7c3aed;"><i class="fa-solid fa-user-clock"></i></div>
-      <span>Total Visitors</span>
-      <div class="num">532</div>
-      <div class="up">↑ 15.7% from last month</div>
-    </div>
-    <div class="card">
-      <div class="ico" style="background:#d97706;"><i class="fa-solid fa-circle-dot"></i></div>
-      <span>Online Now</span>
-      <div class="num">85</div>
-      <div class="up">● Live users</div>
-    </div>
-    <div class="card">
-      <div class="ico" style="background:#0284c7;"><i class="fa-solid fa-right-to-bracket"></i></div>
-      <span>Today's Logins</span>
-      <div class="num">342</div>
-      <div class="up">↑ 9.6% from yesterday</div>
-    </div>
-    <div class="card">
-      <div class="ico" style="background:#db2777;"><i class="fa-solid fa-chart-line"></i></div>
-      <span>This Month Logins</span>
-      <div class="num">5,672</div>
-      <div class="up">↑ 18.4% from last month</div>
-    </div>
+    <div class="card"><div class="ico" style="background:#1d4ed8;"><i class="fa-solid fa-users"></i></div><span>Total Students</span><div class="num">1,248</div><div class="up">↑ 12.5% from last month</div></div>
+    <div class="card"><div class="ico" style="background:#059669;"><i class="fa-solid fa-chalkboard-user"></i></div><span>Total Teachers</span><div class="num">156</div><div class="up">↑ 8.3% from last month</div></div>
+    <div class="card"><div class="ico" style="background:#7c3aed;"><i class="fa-solid fa-user-clock"></i></div><span>Total Visitors</span><div class="num">532</div><div class="up">↑ 15.7% from last month</div></div>
+    <div class="card"><div class="ico" style="background:#d97706;"><i class="fa-solid fa-circle-dot"></i></div><span>Online Now</span><div class="num">85</div><div class="up">● Live users</div></div>
+    <div class="card"><div class="ico" style="background:#0284c7;"><i class="fa-solid fa-right-to-bracket"></i></div><span>Today's Logins</span><div class="num">342</div><div class="up">↑ 9.6% from yesterday</div></div>
+    <div class="card"><div class="ico" style="background:#db2777;"><i class="fa-solid fa-chart-line"></i></div><span>This Month Logins</span><div class="num">5,672</div><div class="up">↑ 18.4% from last month</div></div>
   </section>
 
-  <!-- Analytics and Lists Grid -->
   <section class="grid">
-    
-    <!-- Analytics Chart -->
     <div class="panel" style="grid-column: 1/-1;">
       <div class="head">
         <h3>Login Analytics (This Month)</h3>
@@ -295,98 +167,122 @@
       <div class="legend"><span class="dot"></span> Students　 <span class="dot greenDot"></span> Teachers</div>
     </div>
 
-    <!-- Donut Role Breakdown -->
-    <div class="panel">
-      <div class="head"><h3>Users by Role</h3></div>
-      <div class="donut"></div>
-      <div style="font-size:11px;line-height:1.8; text-align:center; color:#94a3b8;">
-        🔵 Students — 64.4%<br>🟢 Teachers — 8.0%<br>🟣 Visitors — 27.5%
-      </div>
-    </div>
-
-    <!-- Recent Logins -->
-    <div class="panel">
-      <div class="head"><h3>Recent Logins</h3></div>
-      <div class="list">
-        <div class="mini">KS</div>
-        <div><b>Kunal Sawant</b><small>Student</small></div>
-        <span class="time">10:35 AM</span>
-      </div>
-      <div class="list">
-        <div class="mini">RS</div>
-        <div><b>Rahul Sharma</b><small>Teacher</small></div>
-        <span class="time">10:32 AM</span>
-      </div>
-      <div class="list">
-        <div class="mini">PD</div>
-        <div><b>Priya Desai</b><small>Visitor</small></div>
-        <span class="time">10:28 AM</span>
-      </div>
-    </div>
-
-    <!-- Visitor Logs -->
-    <div class="panel sidepanel">
-      <div class="head"><h3>Visitor Logs</h3></div>
-      <div class="list">
-        <div class="mini">NJ</div>
-        <div><b>Neha Joshi</b><small>Campus visit</small></div>
-        <span class="time">10:15</span>
-      </div>
-      <div class="list">
-        <div class="mini">RM</div>
-        <div><b>Rohan Mehta</b><small>Admission enquiry</small></div>
-        <span class="time">10:08</span>
-      </div>
-    </div>
-
-    <!-- User Management Table -->
+    <!-- User Management Table (Automatically filled by JavaScript) -->
     <div class="panel users" style="grid-column: 1/-1;">
       <div class="head">
-        <h3>User Management</h3>
-        <button class="select" style="background:var(--accent); color:#0f172a; font-weight:700; border:none; cursor:pointer;">+ Add User</button>
+        <h3>Live User Management</h3>
+        <button class="select" style="background:#d97706; color:#fff; border:none; cursor:pointer;" onclick="localStorage.removeItem('collegeUsers'); loadUsersTable();">Clear Database</button>
       </div>
       <div class="tablewrap">
         <table>
-          <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last Login</th><th>Actions</th>
-          </tr>
-          <tr>
-            <td>#1001</td><td>Kunal Sawant</td><td>kunal@gmail.com</td><td>Student</td>
-            <td><span class="status">Active</span></td><td>23 Aug, 10:35 AM</td>
-            <td class="actions"><button title="View"><i class="fa-solid fa-eye"></i></button><button class="edit" title="Edit"><i class="fa-solid fa-pen"></i></button><button class="del" title="Delete"><i class="fa-solid fa-trash"></i></button></td>
-          </tr>
-          <tr>
-            <td>#1002</td><td>Rahul Sharma</td><td>rahul@gmail.com</td><td>Teacher</td>
-            <td><span class="status">Active</span></td><td>23 Aug, 10:32 AM</td>
-            <td class="actions"><button title="View"><i class="fa-solid fa-eye"></i></button><button class="edit" title="Edit"><i class="fa-solid fa-pen"></i></button><button class="del" title="Delete"><i class="fa-solid fa-trash"></i></button></td>
-          </tr>
+          <!-- The script at the bottom will inject the rows here -->
         </table>
       </div>
     </div>
-
   </section>
 
   <div class="footer">© 2026 Shivaji English School & Junior College. All Rights Reserved.</div>
 </main>
 
-<!-- Drawer Toggle Script -->
+
+<!-- Custom Security Popup Modal -->
+<div class="settings-modal" id="securityModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 4000; justify-content: center; align-items: center; padding: 20px;">
+  <div style="background: var(--bg-card); border-radius: 16px; width: 100%; max-width: 350px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <i class="fa-solid fa-triangle-exclamation" style="font-size: 40px; color: #ef4444; margin-bottom: 15px;"></i>
+    <h3 style="margin-bottom: 10px; color: var(--primary-dark); font-family: var(--font-heading);">Security Warning</h3>
+    <p style="color: #64748b; font-size: 14px; margin-bottom: 25px;">You are about to view sensitive user credentials. Are you sure you want to proceed?</p>
+    <div style="display: flex; gap: 15px;">
+      <button onclick="closeSecurityModal()" style="flex: 1; padding: 12px; background: #e2e8f0; color: #0f172a; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">No</button>
+      <button id="confirmYesBtn" style="flex: 1; padding: 12px; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer;">Yes</button>
+    </div>
+  </div>
+</div>
+
+<!-- Dashboard Logic Script -->
 <script>
+  // 1. Mobile Menu Drawer Logic
   const menuToggleBtn = document.getElementById('menuToggleBtn');
   const sideDrawer = document.getElementById('sideDrawer');
-
-  menuToggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    sideDrawer.classList.toggle('open');
-  });
-
-  // Close drawer when clicking outside on mobile
+  if (menuToggleBtn) {
+    menuToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); sideDrawer.classList.toggle('open');
+    });
+  }
   document.addEventListener('click', (e) => {
-    if (window.innerWidth < 900) {
-      if (!sideDrawer.contains(e.target) && !menuToggleBtn.contains(e.target)) {
-        sideDrawer.classList.remove('open');
-      }
+    if (window.innerWidth < 900 && sideDrawer && menuToggleBtn && !sideDrawer.contains(e.target) && !menuToggleBtn.contains(e.target)) {
+      sideDrawer.classList.remove('open');
     }
   });
+
+  // 2. Database & Security Modal Logic
+  let targetPasswordIndex = null;
+  let currentUsersDB = [];
+
+  function loadUsersTable() {
+    currentUsersDB = JSON.parse(localStorage.getItem('collegeUsers')) || [];
+    const tableHTML = `<tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Password</th><th>Last Login</th><th>Actions</th></tr>`;
+    let rowsHTML = "";
+
+    // Build a table row for every login saved in the browser memory
+    currentUsersDB.forEach((user, index) => {
+      const hiddenPass = "•".repeat(8);
+      rowsHTML += `
+        <tr>
+          <td>${user.id}</td>
+          <td><b>${user.name}</b></td>
+          <td>${user.email}</td>
+          <td><span class="status" style="border-color:var(--accent); color:var(--accent);">${user.role}</span></td>
+          <td id="pass-cell-${index}" style="letter-spacing: 2px;">${hiddenPass}</td>
+          <td>${user.time}</td>
+          <td class="actions">
+            <button onclick="requestPasswordView(${index})" title="View Data"><i class="fa-solid fa-eye"></i></button>
+            <button class="del" onclick="deleteUser(${index})" title="Delete"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      `;
+    });
+    
+    // Inject it into the HTML table
+    const tableContainer = document.querySelector('.users table');
+    if(tableContainer) { tableContainer.innerHTML = tableHTML + rowsHTML; }
+  }
+
+  // Opens the Security Warning Modal
+  function requestPasswordView(index) {
+    targetPasswordIndex = index; 
+    document.getElementById('securityModal').style.display = 'flex';
+  }
+
+  // Closes the Security Warning Modal
+  function closeSecurityModal() {
+    targetPasswordIndex = null;
+    document.getElementById('securityModal').style.display = 'none';
+  }
+
+  // Unmasks the password if Admin confirms "Yes"
+  document.getElementById('confirmYesBtn').addEventListener('click', () => {
+    if (targetPasswordIndex !== null) {
+      const realPass = currentUsersDB[targetPasswordIndex].pass;
+      const cell = document.getElementById(`pass-cell-${targetPasswordIndex}`);
+      cell.innerText = realPass;
+      cell.style.letterSpacing = "normal";
+      cell.style.color = "#ef4444";
+      cell.style.fontWeight = "bold";
+    }
+    closeSecurityModal();
+  });
+
+  // Allows Admin to delete a row
+  function deleteUser(index) {
+    if(confirm("Delete this user log permanently?")) {
+      currentUsersDB.splice(index, 1); 
+      localStorage.setItem('collegeUsers', JSON.stringify(currentUsersDB)); 
+      loadUsersTable();
+    }
+  }
+
+  // Draw the table immediately when the page loads
+  document.addEventListener('DOMContentLoaded', loadUsersTable);
 </script>
 
 </body>
