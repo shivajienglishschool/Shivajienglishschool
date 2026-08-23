@@ -3,156 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Shivaji English School & Junior College</title>
-  
-  <!-- Linking the Master Fonts and CSS -->
+  <title>Home | Shivaji English School</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
-    /* Local Layout Styles for Home Page */
-    .hero-section {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #f8fafc 0%, #ecfeff 100%);
-    }
-    
-    .hero-badge {
-      background: var(--accent-light);
-      color: #b45309;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 14px;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: 3.5rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-    
-    .hero-title span {
-      color: var(--primary-light);
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .stat-item h3 {
-      font-size: 2.5rem;
-      color: var(--primary-dark);
-      margin-bottom: 5px;
-    }
-
-    /* Kiosk & Notice Grid */
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card-panel {
-      background: var(--bg-card);
-      border-radius: var(--radius-md);
-      padding: 30px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-      border: 1px solid var(--border-color);
-    }
-
-    .kiosk-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      background: #f1f5f9;
-      font-weight: 700;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .kiosk-btn:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .notice-item {
-      padding: 15px;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .notice-item:last-child {
-      border-bottom: none;
-    }
-    .notice-date {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
+    .hero-section { padding: 60px 20px; text-align: center; background: linear-gradient(135deg, #f8fafc 0%, #ecfeff 100%); }
+    .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 20px; font-family: var(--font-heading); color: var(--primary-dark); }
+    .hero-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+    .stat-item h3 { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 5px; font-family: var(--font-heading); }
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+    .card-panel { background: var(--bg-card); border-radius: 16px; padding: 30px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); border: 1px solid var(--border-color); }
+    .kiosk-btn { display: flex; align-items: center; gap: 15px; width: 100%; padding: 18px; margin-bottom: 15px; border-radius: 8px; border: none; background: #f1f5f9; font-weight: 700; font-size: 15px; cursor: pointer; transition: 0.3s; color: var(--primary-dark); }
+    .kiosk-btn:hover { background: var(--primary); color: white; }
+    .kiosk-btn i { font-size: 20px; }
   </style>
 </head>
 <body>
 
-  <!-- Universal Navigation Bar -->
+  <!-- The Exact Header from Screenshot -->
   <header class="main-header">
+    <div class="college-title-gold">
+      SHIVAJI ENGLISH SCHOOL & JUNIOR COLLEGE OF SCIENCE, ARTS & COMMERCE
+    </div>
     <div class="nav-container">
-      <div class="college-name">SHIVAJI ENGLISH SCHOOL</div>
+      <button class="mobile-toggle" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></button>
+      
       <ul class="nav-list">
-        <li><a href="home.html" class="nav-link" style="color: var(--accent);">Home</a></li>
-        <li><a href="academics.html" class="nav-link">Academics & IT Hub</a></li>
+        <li><a href="home.html" class="nav-link active">Home</a></li>
+        <li><a href="academics.html" class="nav-link">Academics</a></li>
+        <li><a href="toppers.html" class="nav-link">Toppers</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="events.html" class="nav-link">Events</a></li>
         <li><a href="tour.html" class="nav-link">Campus Tour</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
+
+      <button class="settings-toggle" onclick="toggleSettings()"><i class="fa-solid fa-gear"></i></button>
     </div>
   </header>
 
   <div class="page-wrapper">
-    <!-- Hero Section -->
     <section class="hero-section">
       <div class="container">
-        <div class="hero-badge"><i class="fa-solid fa-star"></i> 60+ Years of Academic Excellence</div>
-        <h1 class="hero-title">Empowering Minds,<br><span>Shaping Leaders</span> in Sindhudurg.</h1>
-        <p>A premier co-educational institution imparting high-quality education in Science, Commerce, Arts, and IT.</p>
-        
+        <div style="color: #b45309; font-weight: 800; margin-bottom: 15px;"><i class="fa-solid fa-star"></i> 60+ Years of Academic Excellence</div>
+        <h1 class="hero-title">Empowering Minds,<br>Shaping Leaders in Sindhudurg.</h1>
         <div class="hero-stats">
-          <div class="stat-item">
-            <h3>1960</h3>
-            <p>Year Established</p>
-          </div>
-          <div class="stat-item">
-            <h3>1,500+</h3>
-            <p>Students Enrolled</p>
-          </div>
-          <div class="stat-item">
-            <h3>100%</h3>
-            <p>HSC Board Result</p>
-          </div>
+          <div class="stat-item"><h3>1960</h3><p>Year Established</p></div>
+          <div class="stat-item"><h3>1,500+</h3><p>Students Enrolled</p></div>
+          <div class="stat-item"><h3>100%</h3><p>HSC Board Result</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Dashboard/Kiosk Section -->
     <section class="container dashboard-grid">
       <!-- Digital Kiosk -->
       <div class="card-panel">
-        <h2 style="margin-bottom: 20px;"><i class="fa-solid fa-display"></i> Digital Kiosk</h2>
+        <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 24px;"><i class="fa-solid fa-display"></i> Digital Kiosk</h2>
         <button class="kiosk-btn"><i class="fa-solid fa-calendar-check"></i> Academic Calendar & Exam Dates</button>
         <button class="kiosk-btn"><i class="fa-solid fa-file-pdf"></i> Download Question Banks</button>
         <button class="kiosk-btn"><i class="fa-solid fa-user-plus"></i> Admission Guidelines 2026-27</button>
@@ -161,27 +68,21 @@
 
       <!-- Notice Board -->
       <div class="card-panel">
-        <h2 style="margin-bottom: 20px;"><i class="fa-solid fa-bullhorn"></i> Official Notice Board</h2>
-        <div class="notice-item">
-          <div class="notice-date">22 AUG 2026</div>
-          <h4>Urgent Parent-Management Meeting</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">Scheduled for Saturday at 10:00 AM in the main auditorium.</p>
+        <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 24px;"><i class="fa-solid fa-bullhorn"></i> Official Notice Board</h2>
+        <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px;">
+          <div style="color: var(--accent); font-weight: 700; font-size: 13px;">22 AUG 2026</div>
+          <h4 style="font-size: 18px; margin: 5px 0;">Urgent Parent-Management Meeting</h4>
+          <p style="font-size: 14px; color: #64748b;">Scheduled for Saturday at 10:00 AM in the main auditorium.</p>
         </div>
-        <div class="notice-item">
-          <div class="notice-date">28 AUG 2026</div>
-          <h4>12th IT Practical Journal Submission</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">All SOP practicals must be submitted to the IT department.</p>
-        </div>
-        <div class="notice-item">
-          <div class="notice-date">05 SEP 2026</div>
-          <h4>Teachers' Day & Annual Gathering</h4>
-          <p style="font-size: 14px; color: var(--text-muted);">Special felicitation program followed by cultural events.</p>
+        <div style="padding-bottom: 15px;">
+          <div style="color: var(--accent); font-weight: 700; font-size: 13px;">28 AUG 2026</div>
+          <h4 style="font-size: 18px; margin: 5px 0;">12th IT Practical Journal Submission</h4>
+          <p style="font-size: 14px; color: #64748b;">All SOP practicals must be submitted to the IT department.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- Master JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
