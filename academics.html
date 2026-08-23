@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics & IT Hub | Shivaji English School</title>
+  
+  <!-- Linking Master Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* Local Styles for Academics */
+    .academics-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .academics-header h1 {
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Course Grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 0;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      position: relative;
+      padding: 25px;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+      border-color: var(--accent);
+    }
+
+    .course-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      letter-spacing: 1px;
+    }
+
+    .course-card h3 {
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+
+    .course-card ul {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .course-card ul li {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+    .course-card ul li i { color: #059669; margin-right: 5px; }
+
+    /* IT Hub Banner */
+    .hub-it-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #bae6fd;
+      padding: 30px;
+      border-radius: var(--radius-md);
+      margin: 40px 0;
+    }
+
+    /* SOP Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-box {
+      background: var(--bg-card);
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      padding: 25px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Universal Navigation Bar -->
+  <header class="main-header">
+    <div class="nav-container">
+      <a href="home.html" style="text-decoration: none;">
+        <div class="college-name">SHIVAJI ENGLISH SCHOOL</div>
+      </a>
+      <ul class="nav-list">
+        <li><a href="home.html" class="nav-link">Home</a></li>
+        <li><a href="academics.html" class="nav-link" style="color: var(--accent);">Academics & IT Hub</a></li>
+        <li><a href="events.html" class="nav-link">Events</a></li>
+        <li><a href="tour.html" class="nav-link">Campus Tour</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- Header -->
+    <div class="academics-header">
+      <h1>Academic Streams & Curriculum</h1>
+      <p style="color: var(--accent); font-weight: bold; letter-spacing: 1px;">Grades 5 through 12 (HSC)</p>
+    </div>
+
+    <div class="container">
+      
+      <!-- IT Hub Banner -->
+      <div class="hub-it-banner">
+        <div>
+          <h2 style="font-size: 1.8rem; margin-bottom: 10px;"><i class="fa-solid fa-laptop-code"></i> 12th Standard IT Practical Hub</h2>
+          <p style="color: var(--text-muted);">Access complete HTML5, CSS3, JavaScript, and Web Designing SOPs for HSC Board exams.</p>
+        </div>
+        <button class="btn-primary" onclick="openSopModal()">Launch IT SOP Editor</button>
+      </div>
+
+      <!-- Streams Grid -->
+      <div class="course-grid">
+        <div class="course-card">
+          <span class="course-badge">Grades 5 - 10</span>
+          <h3>Secondary Schooling</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Rigorous foundation adhering to Maharashtra State Board curriculum.</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> English, Marathi, Hindi</li>
+            <li><i class="fa-solid fa-circle-check"></i> Mathematics & General Science</li>
+            <li><i class="fa-solid fa-circle-check"></i> Social Sciences & ICT</li>
+          </ul>
+        </div>
+
+        <div class="course-card">
+          <span class="course-badge">Grades 11 & 12 (HSC)</span>
+          <h3>Science Stream</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Laboratory coaching for CET/NEET/JEE aspirants and core sciences.</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Physics & Chemistry</li>
+            <li><i class="fa-solid fa-circle-check"></i> Mathematics & Biology</li>
+            <li><i class="fa-solid fa-circle-check"></i> Information Technology (IT - 97)</li>
+          </ul>
+        </div>
+
+        <div class="course-card">
+          <span class="course-badge">Grades 11 & 12 (HSC)</span>
+          <h3>Commerce Stream</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Foundation for corporate finance, banking, and management.</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Book Keeping & Accountancy</li>
+            <li><i class="fa-solid fa-circle-check"></i> Economics & OCM</li>
+            <li><i class="fa-solid fa-circle-check"></i> Secretarial Practice / IT</li>
+          </ul>
+        </div>
+
+        <div class="course-card">
+          <span class="course-badge">Grades 11 & 12 (HSC)</span>
+          <h3>Arts & Humanities</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Fostering critical thinking and civil services exam foundations.</p>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> History & Political Science</li>
+            <li><i class="fa-solid fa-circle-check"></i> Geography & Economics</li>
+            <li><i class="fa-solid fa-circle-check"></i> Languages & Literature</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IT SOP Modal -->
+  <div class="modal-overlay" id="sopModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 style="color: var(--primary);"><i class="fa-solid fa-code"></i> HSC Board IT - SOP 1</h2>
+        <button class="close-btn" onclick="closeSopModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p style="margin-bottom: 15px; color: var(--text-muted);"><strong>Aim:</strong> Creation of Website using HTML5 and CSS3 Layout.</p>
+      <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;My College Project&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial; background: #f4f4f4; }
+    header { background: #1a365d; color: white; padding: 20px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Welcome to IT Practicals&lt;/h1&gt;
+  &lt;/header&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </code></pre>
+    </div>
+  </div>
+
+  <script>
+    function openSopModal() {
+      document.getElementById('sopModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSopModal() {
+      document.getElementById('sopModal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  </script>
+
+  <!-- Connect the AI Assistant -->
+  <script src="script.js"></script>
+</body>
+</html>
