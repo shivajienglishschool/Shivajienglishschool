@@ -7,154 +7,130 @@
   --accent: #d97706;        
   --text-main: #1f2937;
   --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
   --font-base: 'Plus Jakarta Sans', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: var(--font-base);
+/* Dark Mode Variables */
+html.dark-theme body {
+  --text-main: #f8fafc;
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --border-color: #334155;
 }
 
-/* --- 2. LOGIN PORTAL STYLES --- */
-.login-body {
-  min-height: 100vh;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-base); }
+body { background: var(--bg-page); color: var(--text-main); transition: 0.3s; }
+
+/* --- 2. PREMIUM TOP HEADER (From Screenshot) --- */
+.main-header {
+  background: #06162c; /* Deep Dark Blue */
+  border-bottom: 3px solid var(--accent); /* Gold Bottom Border */
+  padding: 15px 20px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+.college-title-gold {
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.nav-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  /* Dark overlay matching your screenshot */
-  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-              url("https://images.unsplash.com/photo-1562774053-701939374585?w=1920") center/cover;
+  position: relative;
 }
 
-.login-box {
-  width: 100%;
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-}
-
-.portal-title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 800;
-  font-family: var(--font-heading);
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-}
-
-/* --- 3. TAB SYSTEM --- */
-.tabs {
+.nav-list {
   display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  gap: 20px;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.tab {
-  flex: 1;
-  padding: 12px 5px;
-  border: none;
-  border-radius: 8px;
-  background: var(--primary); /* Dark Blue */
+.nav-link {
   color: white;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.tab.active {
-  background: var(--accent); /* Gold/Amber */
-  color: var(--primary-dark);
-}
-
-/* --- 4. FORM ELEMENTS --- */
-input[type=text],
-input[type=email],
-input[type=password] {
-  width: 100%;
-  padding: 14px 16px;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  font-size: 15px;
-}
-
-input:focus {
-  outline: 2px solid var(--accent);
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.remember {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-}
-
-.options a {
-  text-decoration: none;
-  color: var(--accent);
-  font-size: 14px;
   font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: 0.2s;
 }
 
-/* --- 5. BUTTONS --- */
-.login-btn {
-  width: 100%;
-  padding: 14px;
+.nav-link:hover, .nav-link.active { color: var(--accent); }
+
+/* Mobile Controls */
+.mobile-toggle, .settings-toggle {
+  display: none;
+  background: none;
   border: none;
-  border-radius: 8px;
-  background: var(--accent); /* Gold Button */
-  color: var(--primary-dark);
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
-  font-family: var(--font-heading);
-  transition: 0.3s;
-}
-
-.login-btn:hover {
-  opacity: 0.9;
-}
-
-.divider {
-  text-align: center;
-  margin: 25px 0;
-  font-size: 18px;
-  font-weight: 800;
-  font-family: var(--font-heading);
-}
-
-.admin-btn {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: var(--primary-dark); /* Dark Navy Button */
   color: white;
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 22px;
   cursor: pointer;
-  font-family: var(--font-heading);
-  transition: 0.3s;
+  position: absolute;
+  top: -35px;
 }
+.mobile-toggle { left: 0; }
+.settings-toggle { right: 0; color: var(--accent); }
 
-.admin-btn:hover {
-  background: var(--primary);
+/* --- 3. MOBILE SIDE DRAWER --- */
+.mobile-drawer {
+  position: fixed;
+  top: 0; left: -300px;
+  width: 280px; height: 100vh;
+  background: #06162c;
+  z-index: 2000;
+  padding: 20px;
+  transition: 0.3s ease;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+}
+.mobile-drawer.open { left: 0; }
+.close-drawer { color: white; background: none; border: none; font-size: 24px; cursor: pointer; text-align: right; width: 100%; margin-bottom: 20px; }
+.drawer-link { display: block; color: white; text-decoration: none; padding: 15px 0; border-bottom: 1px solid #1e3a5f; font-weight: 600; font-size: 1.1rem; }
+.drawer-link i { width: 25px; color: var(--accent); }
+
+/* --- 4. SETTINGS MODAL --- */
+.settings-modal {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 3000; justify-content: center; align-items: center; padding: 20px;
+}
+.settings-content {
+  background: var(--bg-card); border-radius: 16px; width: 100%; max-width: 400px; overflow: hidden;
+}
+.settings-head {
+  padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;
+}
+.settings-head h3 { margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+.setting-row { padding: 20px; border-bottom: 1px solid var(--border-color); }
+.setting-row label { font-weight: 800; display: block; margin-bottom: 5px; font-size: 1rem; }
+.setting-row p { font-size: 0.8rem; color: #64748b; margin-bottom: 15px; }
+.setting-options { display: flex; gap: 10px; }
+.set-btn { flex: 1; padding: 10px; border: 1px solid #cbd5e1; background: transparent; color: var(--text-main); border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.2s; }
+.set-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
+.settings-footer { padding: 15px 20px; display: flex; gap: 10px; background: rgba(0,0,0,0.02); }
+
+/* --- 5. UNIVERSAL MOBILE RESPONSIVENESS --- */
+.page-wrapper { padding-top: 130px; }
+
+@media (max-width: 900px) {
+  .college-title-gold { font-size: 0.9rem; margin-bottom: 0; padding: 0 40px; }
+  .nav-list { display: none; /* Hidden on mobile, handled by drawer */ }
+  .mobile-toggle, .settings-toggle { display: block; top: -5px; }
+  .page-wrapper { padding-top: 80px; }
+  
+  /* Force all grids to stack on mobile */
+  .dashboard-grid, .course-grid, .events-grid, .toppers-grid, .contact-container {
+    grid-template-columns: 1fr !important;
+  }
 }
