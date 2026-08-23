@@ -95,30 +95,60 @@
       }
     }
 
-    // Security Logic using your exact credentials
+    // Security Logic allowing MULTIPLE Admins
     function validateAdminLogin(event) {
       event.preventDefault(); 
       
-      const name = document.getElementById('adminName').value;
-      const email = document.getElementById('adminEmail').value;
-      const pass = document.getElementById('adminPass').value;
+      const inputName = document.getElementById('adminName').value;
+      const inputEmail = document.getElementById('adminEmail').value;
+      const inputPass = document.getElementById('adminPass').value;
 
-      if (name === "Soham Jikamade" && email === "sohamjikamde@gmail.com" && pass === "sohamjikamade9322") {
-        
+      // 1. Complete list of authorized admins
+      const authorizedAdmins = [
+        { 
+          name: "Soham Jikamade", 
+          email: "sohamjikamde@gmail.com", 
+          pass: "sohamjikamade9322" 
+        },
+        { 
+          name: "kunalSawant", 
+          email: "kunalsawant17@gmail.com", 
+          pass: "17kunalsawant17" 
+        }
+      ];
+
+      // 2. Check if the typed details match ANY admin on our list
+      const isValidAdmin = authorizedAdmins.some(admin => 
+        admin.name === inputName && 
+        admin.email === inputEmail && 
+        admin.pass === inputPass
+      );
+
+      // 3. If a match is found, log them in and save to database
+      if (isValidAdmin) {
         const now = new Date();
         const timeString = now.toLocaleDateString('en-GB', { day:'numeric', month:'short' }) + ', ' + now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
         
         let usersDB = JSON.parse(localStorage.getItem('collegeUsers')) || [];
+        
         usersDB.push({
-          id: "#" + (1001 + usersDB.length), name: name, email: email, role: "Admin", pass: pass, time: timeString
+          id: "#" + (1001 + usersDB.length), 
+          name: inputName, 
+          email: inputEmail, 
+          role: "Admin", 
+          pass: inputPass, 
+          time: timeString
         });
+        
         localStorage.setItem('collegeUsers', JSON.stringify(usersDB));
-
         window.location.href = 'admin-dashboard.html';
+        
       } else {
+        // If no match is found, show the error
         alert("Put correct information to login as a admin");
       }
     }
   </script>
+
 </body>
 </html>
