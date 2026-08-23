@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Portal | Shivaji English School</title>
+  
+  <!-- Linking the Master Fonts and CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+  <div class="login-box">
+    <div class="portal-title">LOGIN PORTAL</div>
+
+    <!-- The Tabs -->
+    <div class="tabs">
+      <button onclick="showForm('student', this)" class="tab active">Students</button>
+      <button onclick="showForm('teacher', this)" class="tab">Teachers</button>
+      <button onclick="showForm('visitor', this)" class="tab">Visitors</button>
+    </div>
+
+    <!-- Student Form -->
+    <form id="studentForm" onsubmit="event.preventDefault(); window.location.href='home.html';">
+      <input type="text" placeholder="Student Name" required>
+      <input type="email" placeholder="Student Email" required>
+      <input type="password" placeholder="Password" required>
+      <div class="options">
+        <label class="remember"><input type="checkbox"><span>Remember Me</span></label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      <button class="login-btn" type="submit">LOGIN</button>
+    </form>
+
+    <!-- Teacher Form -->
+    <form id="teacherForm" style="display:none;" onsubmit="event.preventDefault(); window.location.href='admin-dashboard.html';">
+      <input type="email" placeholder="Teacher Email" required>
+      <input type="password" placeholder="Password" required>
+      <div class="options">
+        <label class="remember"><input type="checkbox"><span>Remember Me</span></label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      <button class="login-btn" type="submit">LOGIN</button>
+    </form>
+
+    <!-- Visitor Form -->
+    <form id="visitorForm" style="display:none;" onsubmit="event.preventDefault(); window.location.href='home.html';">
+      <input type="text" placeholder="Visitor Name" required>
+      <input type="email" placeholder="Visitor Email" required>
+      <div class="options">
+        <label class="remember"><input type="checkbox"><span>Remember Me</span></label>
+      </div>
+      <button class="login-btn" type="submit">ENTER PORTAL</button>
+    </form>
+
+    <div class="divider">OR</div>
+
+    <!-- Admin Login Route -->
+    <button class="admin-btn" onclick="window.location.href='admin-login.html'">ADMIN LOGIN</button>
+  </div>
+
+  <!-- JavaScript to handle tab switching -->
+  <script>
+    function showForm(type, btn) {
+      document.getElementById("studentForm").style.display = "none";
+      document.getElementById("teacherForm").style.display = "none";
+      document.getElementById("visitorForm").style.display = "none";
+
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      document.getElementById(type + "Form").style.display = "block";
+      btn.classList.add("active");
+    }
+  </script>
+
+  <!-- We will link the script.js here later when we build the AI Assistant -->
+</body>
+</html>
