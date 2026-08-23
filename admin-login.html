@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* Same light blue background as index.html */
+    /* Light blue gradient matching the main portal */
     body.login-body {
       min-height: 100vh;
       display: flex;
@@ -21,6 +21,7 @@
       font-family: var(--font-base);
     }
 
+    /* White card matching the main portal */
     .login-card {
       background: #ffffff;
       width: 100%;
@@ -31,69 +32,91 @@
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    .login-header { text-align: center; margin-bottom: 20px; }
+    .login-header { text-align: center; margin-bottom: 25px; }
     .login-header i { font-size: 45px; color: #1a365d; margin-bottom: 15px; }
     .login-header h1 { font-family: var(--font-heading); color: #0f172a; font-size: 22px; line-height: 1.2; margin: 0; }
-    .login-header p { color: #d97706; font-weight: 800; font-size: 12px; letter-spacing: 1px; margin-top: 8px; }
-    
-    .title-box { text-align: center; font-size: 18px; font-weight: 800; font-family: var(--font-heading); margin-bottom: 25px; color: #0f172a; }
+    .login-header p { color: #d97706; font-weight: 800; font-size: 12px; letter-spacing: 1px; margin-top: 8px; text-transform: uppercase; }
 
     .form-group { margin-bottom: 15px; }
     .form-control { width: 100%; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 10px; font-family: var(--font-base); font-size: 14px; outline: none; transition: 0.3s; background: #f8fafc; }
     .form-control:focus { border-color: #1a365d; background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1); }
 
-    .forgot { text-align: right; margin-bottom: 20px; font-size: 13px; }
-    .forgot a { color: #d97706; text-decoration: none; font-weight: 700; }
-    .forgot a:hover { text-decoration: underline; }
+    .options-row { display: flex; justify-content: flex-end; align-items: center; font-size: 13px; margin-bottom: 25px; }
+    .options-row a { color: #d97706; text-decoration: none; font-weight: 700; }
+    .options-row a:hover { text-decoration: underline; }
 
-    /* Custom Admin Buttons */
-    .face-btn { width: 100%; padding: 14px; background: #1a365d; color: white; border: none; border-radius: 10px; font-family: var(--font-base); font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 15px; }
-    .face-btn:hover { background: #0f172a; transform: translateY(-2px); }
+    .btn-main { width: 100%; padding: 15px; background: #1a365d; color: white; border: none; border-radius: 10px; font-family: var(--font-heading); font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-bottom: 15px; }
+    .btn-main:hover { background: #0f172a; transform: translateY(-2px); }
 
-    .btn-main { width: 100%; padding: 15px; background: #d97706; color: white; border: none; border-radius: 10px; font-family: var(--font-heading); font-size: 16px; font-weight: 800; cursor: pointer; transition: 0.3s; }
-    .btn-main:hover { background: #b45309; transform: translateY(-2px); }
+    .btn-face { width: 100%; padding: 14px; background: white; color: #1a365d; border: 2px solid #e2e8f0; border-radius: 10px; font-family: var(--font-base); font-weight: 700; font-size: 14px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; }
+    .btn-face:hover { border-color: #1a365d; background: #f8fafc; }
 
-    /* Back Link */
-    .back-link { display: block; text-align: center; margin-top: 25px; font-size: 13px; color: #64748b; text-decoration: none; font-weight: 600; }
-    .back-link:hover { color: #1a365d; text-decoration: underline; }
+    .divider { text-align: center; position: relative; margin: 20px 0; color: #94a3b8; font-size: 12px; font-weight: 700; }
+    .divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 40%; height: 1px; background: #e2e8f0; }
+    .divider::before { left: 0; } .divider::after { right: 0; }
   </style>
 </head>
 <body class="login-body">
 
   <div class="login-card">
+    
     <div class="login-header">
       <i class="fa-solid fa-shield-halved"></i>
       <h1>SHIVAJI ENGLISH SCHOOL</h1>
-      <p>ADMINISTRATION</p>
+      <p>SECURE ADMIN PORTAL</p>
     </div>
 
-    <div class="title-box">ADMIN LOGIN</div>
-
-    <form onsubmit="event.preventDefault(); window.location.href='admin-dashboard.html';">
+    <!-- Custom Validation Form -->
+    <form id="adminLoginForm" onsubmit="validateAdminLogin(event)">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Admin Username" required>
+        <input type="text" id="adminName" class="form-control" placeholder="Admin Full Name" required>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Admin Email" required>
+        <input type="email" id="adminEmail" class="form-control" placeholder="Admin Email" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="password" id="adminPass" class="form-control" placeholder="Password" required>
       </div>
       
-      <div class="forgot">
+      <div class="options-row">
         <a href="#">Forgot Password?</a>
       </div>
 
-      <!-- Admin Specific Features -->
-      <button type="button" class="face-btn" onclick="alert('Face Scan Module Initialized...');">
+      <button type="submit" class="btn-main">LOGIN AS ADMIN</button>
+      
+      <div class="divider">OR</div>
+
+      <button type="button" class="btn-face" onclick="alert('Face Scan Module Initialized...');">
         <i class="fa-solid fa-camera"></i> Face Scan Authentication
       </button>
-
-      <button type="submit" class="btn-main">LOGIN AS ADMIN</button>
     </form>
 
-    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Main Portal</a>
+    <div style="text-align: center; margin-top: 25px;">
+      <a href="index.html" style="color: #64748b; font-size: 13px; text-decoration: none; font-weight: 600;"><i class="fa-solid fa-arrow-left"></i> Back to Main Portal</a>
+    </div>
+
   </div>
+
+  <script>
+    // Security Logic matching your exact requirements
+    function validateAdminLogin(event) {
+      event.preventDefault(); // Prevents the page from reloading
+      
+      // Get the values typed into the inputs
+      const name = document.getElementById('adminName').value;
+      const email = document.getElementById('adminEmail').value;
+      const pass = document.getElementById('adminPass').value;
+
+      // Check if they exactly match your credentials
+      if (name === "Soham Jikamade" && email === "sohamjikamde@gmail.com" && pass === "sohamjikamade9322721914@7755") {
+        // Success! Redirect to the dashboard
+        window.location.href = 'admin-dashboard.html';
+      } else {
+        // Failure! Show your custom popup message
+        alert("Put correct information to login as a admin");
+      }
+    }
+  </script>
 
 </body>
 </html>
